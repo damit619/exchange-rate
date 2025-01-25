@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  main:
+    banner-mode: "off"
+  application:
+    name: exchange-rate
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+exchange-rate:
+  open-exchange-api:
+    api-url: https://openexchangerates.org/api/latest.json
+    api-id: ${EXCHANGE_API_API_ID:default-Id}
+    api-limit: 60
+    cache-name: exchange-rates
+    cache-ttl: 20000
+  authentication:
+    jwt-secret: ea2afb31db5d1c1325f09df50a57f309f094c90dd0b9ab1e06d3457d326c2eb2220e79faec487c693a7cc30775f6fa4976d6405c89dc6683ccee0eb92a986544c1c44c0356bc91aa11a5062392ba71e2bfdada3b2fd0beafc6f28584a48f9a9d3eef2c289f5a861816e489dd9e74b0dcd12363451c93de9fa5af374753a54463f9a436a0796ce620d569a9ef77d4ea184cfedd909a7f58ca72c8886681d926ff11f8a09fe8c7a448e1dbc417a712e3b1f8d60178ce960b6af7676fe766c7b3f73a667e94e1b238af36bf4440d732220a1eb4ba65ebaecb59d43765f482604e746de1f038b4317337e0b96f46c4afbcc947c4a6d3d19405775612fec6a349fdcf
+    jwt-expiration-millis: 100000000
+
