@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface ExchangeResource {
 
     @GetMapping("?app_id={apiId}&base={baseCurrency}")
-    public OpenExchangeRateDTO getExchangeRateByBaseCurrency (@RequestParam("app_id") String apiId, @RequestParam("base") String baseCurrency);
+    OpenExchangeRateDTO getExchangeRateByBaseCurrency (@RequestParam("app_id") String apiId, @RequestParam("base") String baseCurrency);
 }

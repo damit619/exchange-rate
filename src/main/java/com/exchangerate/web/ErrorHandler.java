@@ -1,7 +1,7 @@
 package com.exchangerate.web;
 
 import com.exchangerate.exception.ExchangeNotFoundException;
-import com.exchangerate.exception.OpenExchangeAPIException;
+import com.exchangerate.exception.OpenExchangeException;
 import com.exchangerate.web.dto.ErrorDetail;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,14 +14,14 @@ import java.util.List;
 @ControllerAdvice
 public class ErrorHandler {
 
-    @ExceptionHandler({OpenExchangeAPIException.class})
-    public ResponseEntity<ErrorDetail> openExchangeError (OpenExchangeAPIException openExchangeAPIException) {
+    @ExceptionHandler({OpenExchangeException.class})
+    public ResponseEntity<ErrorDetail> openExchangeError (OpenExchangeException openExchangeException) {
         ErrorDetail errorDetail = ErrorDetail.builder()
                 .timestamp(LocalDateTime.now())
-                .errorDetails(List.of(openExchangeAPIException.getError()))
-                .httpStatus(openExchangeAPIException.getStatusCode())
+                .errorDetails(List.of(openExchangeException.getError()))
+                .httpStatus(openExchangeException.getStatus())
                 .build();
-        return new ResponseEntity<>(errorDetail, openExchangeAPIException.getStatusCode());
+        return new ResponseEntity<>(errorDetail, openExchangeException.getStatus());
     }
 
     @ExceptionHandler({ExchangeNotFoundException.class})

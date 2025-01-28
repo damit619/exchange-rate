@@ -4,7 +4,6 @@ import com.exchangerate.config.ExchangeApiProperties;
 import com.exchangerate.modle.exchange.Rate;
 import com.exchangerate.modle.exchange.RateInfo;
 import com.exchangerate.openexchange.ExchangeResource;
-import com.exchangerate.openexchange.dto.OpenExchangeRateDTO;
 import com.exchangerate.service.exchangerate.RateService;
 import com.exchangerate.service.exchangerate.RateServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,10 +13,10 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
-import java.util.Map;
 import java.util.UUID;
 
 import static com.exchangerate.modle.CurrencyCode.*;
+import static com.exchangerate.service.TestData.getExchangeRates;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.core.Is.is;
@@ -69,14 +68,4 @@ public class RateServiceTest {
         assertThat(conversion.doubleValue(), equalTo(176.0));
     }
 
-    private OpenExchangeRateDTO getExchangeRates () {
-        Map<String, BigDecimal> rates = Map.of(
-                "INR", new BigDecimal(88),
-                "AED", new BigDecimal(24)
-        );
-        return OpenExchangeRateDTO.builder()
-                .base("USD")
-                .rates(rates)
-                .build();
-    }
 }

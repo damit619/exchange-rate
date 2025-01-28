@@ -6,6 +6,8 @@ import okhttp3.OkHttpClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static com.exchangerate.exception.OpenExchangeException.from;
+
 @Configuration
 public class FeignClientConfig {
 
@@ -16,7 +18,7 @@ public class FeignClientConfig {
 
     @Bean
     public ErrorDecoder errorDecoder() {
-        return new FeignOpenExchangeErrorDecoder();
+        return (key, response) -> from(response);
     }
 
     @Bean

@@ -9,7 +9,7 @@ spring:
   jackson:
     serialization:
       fail-on-empty-beans: false
-
+EXCHANGE_API_API_ID: 14d69e3a1bf24644834878173e8d43d3
 exchange-rate:
   open-exchange-api:
     api-url: https://openexchangerates.org/api/latest.json

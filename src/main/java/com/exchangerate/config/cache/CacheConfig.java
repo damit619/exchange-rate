@@ -1,5 +1,6 @@
-package com.exchangerate.config;
+package com.exchangerate.config.cache;
 
+import com.exchangerate.config.ExchangeApiProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

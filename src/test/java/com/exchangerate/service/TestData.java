@@ -5,10 +5,12 @@ import com.exchangerate.modle.bill.BillDetail;
 import com.exchangerate.modle.bill.Category;
 import com.exchangerate.modle.exchange.RateInfo;
 import com.exchangerate.modle.user.UserType;
+import com.exchangerate.openexchange.dto.OpenExchangeRateDTO;
 import com.exchangerate.service.discount.RuleTestData;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Map;
 
 public final class TestData {
 
@@ -29,6 +31,17 @@ public final class TestData {
         return RateInfo.builder()
                 .currencyCode(code)
                 .rate(rate)
+                .build();
+    }
+
+    public static OpenExchangeRateDTO getExchangeRates () {
+        Map<String, BigDecimal> rates = Map.of(
+                "INR", new BigDecimal(88),
+                "AED", new BigDecimal(24)
+        );
+        return OpenExchangeRateDTO.builder()
+                .base("USD")
+                .rates(rates)
                 .build();
     }
 }

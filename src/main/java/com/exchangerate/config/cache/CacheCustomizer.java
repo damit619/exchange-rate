@@ -1,4 +1,4 @@
-package com.exchangerate.openexchange.cache;
+package com.exchangerate.config.cache;
 
 import com.exchangerate.config.ExchangeApiProperties;
 import lombok.RequiredArgsConstructor;
