@@ -24,6 +24,9 @@
   "password":"password"
   }'
 
+### Discount rules
+
+![screenshot](docs/rule-engine.jpg)
 
 ## Endpoint to calculate exchange rate
 
